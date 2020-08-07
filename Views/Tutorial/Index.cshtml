@@ -1,0 +1,31 @@
+﻿@using aspnetappTest.Models;
+@model IEnumerable<Person>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            @foreach (string prop in @ViewData["properties"] as List<string>)
+            {
+                <th>@prop.ToUpper()</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Person person in Model)
+        {
+           <tr>
+               <td>@person.name</td>
+               <td>@person.lastname</td>
+               <td>@person.age</td>
+           </tr>
+        }
+    </tbody>
+</table>
